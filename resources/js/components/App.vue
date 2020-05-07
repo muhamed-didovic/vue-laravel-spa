@@ -1,9 +1,7 @@
 <template>
     <div>
         <navigation></navigation>
-
-        <div class="container">
-            FRESH APP
+        <div class="py-4">
             <router-view></router-view>
         </div>
     </div>
@@ -18,3 +16,7 @@
         }
     }
 </script>
+
+<style>
+
+</style>

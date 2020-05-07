@@ -15,5 +15,6 @@ export const setAuthenticated = (state, trueOrFalse) => {
 }
 
 export const setUserData = (state, data) => {
+    console.log('setUserData mutation', state, 'data', data);
     state.user.data = data
 }

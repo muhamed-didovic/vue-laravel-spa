@@ -22,45 +22,19 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('app', App);
-// Vue.component('navigation', Navigation);
-// Vue.component('app', require('./components/App.vue').default);
-// Vue.component('navigation', require('./components/Navigation.vue').default);
-
-store.dispatch('auth/setToken').then(() => {
+store.dispatch('auth/setToken')
+    .then(() => {
+        console.log('111');
     store.dispatch('auth/fetchUser').catch(() => {
+        console.log('222');
         store.dispatch('auth/clearAuth')
         router.replace({ name: 'login' })
     })
 }).catch(() => {
+    console.log('333');
     store.dispatch('auth/clearAuth')
 })
-
 Vue.config.productionTip = false
-
-// const app = new Vue({
-//     // router: router,
-//     store: store,
-//     el: '#app',
-//     components: {App},
-//     template: '<App/>'
-// });
-
-// new Vue({
-//     el: '#app',
-//     // router: router,
-//     store: store,
-//     render: h => h(app)
-//     // created: () => http.init()
-// })
-
-// new Vue({
-//     router,
-//     store,
-//     render: function(h) {
-//         return h(App)
-//     }
-// }).$mount('#app')
 
 /* eslint-disable no-new */
 new Vue({
@@ -70,4 +44,3 @@ new Vue({
     components: {App},
     template: '<App/>'
 })
-
