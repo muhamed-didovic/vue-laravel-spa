@@ -1,6 +1,7 @@
 import router from './router'
 import store from './vuex'
 import localforage from 'localforage'
+import App from './components/App.vue'
 
 localforage.config({
     driver: localforage.LOCALSTORAGE,
@@ -21,8 +22,10 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('app', require('./components/App.vue'));
-Vue.component('navigation', require('./components/Navigation.vue'));
+// Vue.component('app', App);
+// Vue.component('navigation', Navigation);
+// Vue.component('app', require('./components/App.vue').default);
+// Vue.component('navigation', require('./components/Navigation.vue').default);
 
 store.dispatch('auth/setToken').then(() => {
     store.dispatch('auth/fetchUser').catch(() => {
@@ -33,8 +36,38 @@ store.dispatch('auth/setToken').then(() => {
     store.dispatch('auth/clearAuth')
 })
 
-const app = new Vue({
-    router: router,
-    store: store,
-    el: '#app'
-});
+Vue.config.productionTip = false
+
+// const app = new Vue({
+//     // router: router,
+//     store: store,
+//     el: '#app',
+//     components: {App},
+//     template: '<App/>'
+// });
+
+// new Vue({
+//     el: '#app',
+//     // router: router,
+//     store: store,
+//     render: h => h(app)
+//     // created: () => http.init()
+// })
+
+// new Vue({
+//     router,
+//     store,
+//     render: function(h) {
+//         return h(App)
+//     }
+// }).$mount('#app')
+
+/* eslint-disable no-new */
+new Vue({
+    el: '#app',
+    router,
+    store,
+    components: {App},
+    template: '<App/>'
+})
+

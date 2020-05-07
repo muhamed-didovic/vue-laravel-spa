@@ -51,6 +51,7 @@
     import { mapGetters, mapActions } from 'vuex'
 
     export default {
+        name: 'navigation',
         computed: mapGetters({
             user: 'auth/user'
         }),
@@ -64,5 +65,5 @@
                 })
             }
         }
-    }    
+    }
 </script>
